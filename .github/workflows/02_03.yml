@@ -1,0 +1,25 @@
+name: Env Exempel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  show-env:
+    runs-on: ubuntu-latest
+    env:
+      GREETING: "Hej"
+      NAME: "GitHub Actions"
+    steps:
+      - name: Print greeting using env vars
+        run: echo "$GREETING från $NAME!"
+
+      - name: Print GitHub context variables
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Branch: $GITHUB_REF_NAME"
+          echo "Actor (who triggered this): $GITHUB_ACTOR"
+          echo "Workflow: $GITHUB_WORKFLOW"
+          echo "Run ID: $GITHUB_RUN_ID"
+
+      - name: Combine custom and GitHub vars
+        run: echo "$GREETING $GITHUB_ACTOR, du kör just nu i $GITHUB_REPOSITORY!"
