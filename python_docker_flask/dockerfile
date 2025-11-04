@@ -1,0 +1,13 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements_mac.txt .
+
+RUN pip install --no-cache-dir -r requirements_mac.txt
+
+COPY hello_world.py .
+
+EXPOSE 5000
+
+CMD ["python", "hello_world.py"]
