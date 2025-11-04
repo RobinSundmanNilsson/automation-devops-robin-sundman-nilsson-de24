@@ -1,4 +1,4 @@
-name: Env Exempel
+name: Task 2 / 03-11-2025
 
 on:
   workflow_dispatch:
