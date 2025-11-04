@@ -1,4 +1,4 @@
-name: dockerhub-publish
+name: python_docker_flask_dockerhub-publish
 
 on:
   push:
