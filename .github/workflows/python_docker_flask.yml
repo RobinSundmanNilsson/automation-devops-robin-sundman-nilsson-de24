@@ -1,0 +1,14 @@
+name: python_docker_flask
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build python_docker_flask --file python_docker_flask/Dockerfile --tag python_docker_flask:latest
