@@ -1,0 +1,16 @@
+# Minimal och snabb bild
+FROM python:3.12-slim
+
+# För bättre IO i terminalen
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+
+# Skapa appmapp och kopiera in koden
+WORKDIR /app
+COPY app.py /app/app.py
+
+# Kör som icke-root för vettig säkerhet
+RUN useradd -m runner
+USER runner
+
+# Startkommandot – interaktiv terminal
+CMD ["python", "/app/app.py"]
